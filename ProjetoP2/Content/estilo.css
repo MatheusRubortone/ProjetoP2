@@ -1,0 +1,446 @@
+body{
+    overflow: hidden;
+}
+
+#alertPlaceholder{
+    font-size: 100%;
+}
+
+#maincol{
+    /* border: 1px solid red; */
+    padding: 20px; 
+    height: 100vh;  
+}
+
+#menucol{
+    height: 100vh;
+    /* border: 1px solid red; */
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-family: 'Montserrat';
+}
+  ::-moz-placeholder { /* Firefox 19+ */
+    font-family: 'Montserrat';
+}
+  :-ms-input-placeholder { /* IE 10+ */
+    font-family: 'Montserrat';
+}
+  :-moz-placeholder { /* Firefox 18- */
+    font-family: 'Montserrat';
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+  
+li>a {
+    font-size: 25px;
+    color: black;
+}
+
+li>a:hover {
+    text-decoration: none;
+    color: grey;
+}
+
+#cont{
+    height: 1000px;
+}
+
+#formulario{
+    margin: auto;
+    width: 100%;
+    background-color:#e6e6e6;
+    padding: 20px;
+    margin-top: 40%;
+    padding-top: 30px;      
+    border-radius: 3px;
+    min-width: 400px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+
+#formulario h2{
+    font-weight: 100;
+     
+}
+
+input{
+    border-radius: 2px;
+}
+
+#txtEmail {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+
+form{
+   padding: 10px 30px 10px 30px; 
+}
+
+button{
+    border-radius: 2px;
+}
+
+#btnEntrar {
+    background-color: #b30000;
+    border: 0;
+}
+
+#cadastre-se{
+    margin-left: 8%;
+}
+
+
+#cadastre-se>a{
+    color: #b30000;
+}
+
+#menu{
+ width: 100%;
+ height: 79%;
+ background-color:#e6e6e6;
+ box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+ padding: 30px;
+ padding-top: 15px; 
+ margin-top: 0px;
+ /* margin-left: 0px; */
+ border-radius: 3px;
+}
+
+.col-3 p{
+    position: relative;
+    font-size: 300%;
+}
+
+#headmenu{
+    overflow: hidden;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    background-color:#e6e6e6;
+    margin-top:30px;
+    /* margin-left: 0px; */
+    width: 100%;
+    padding: 10px;
+    padding-left: 30px;
+    border-radius: 3px;
+}
+
+#menu .list-group li{
+    overflow: hidden;
+    background-color: #e6e6e6;
+    color: black;
+    font-family: 'Montserrat';
+}  
+
+#info{
+    overflow: hidden;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    background-color:#e6e6e6;
+    margin-top:30px;
+    /* margin-left: 30px; */
+    width: 100%;
+    padding: 10px;
+    /* padding-left: 30px; */
+    height: 74%;
+    border-radius: 3px;
+}
+
+#info>li{
+    font-size: 10px;
+}
+
+#info #painel{
+    overflow: hidden;
+    margin: auto;
+    margin-top: 20px;
+    background-color: white;
+    height: 80%;
+    width: 99%;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+#info #infot{
+    margin-left: 20px;
+}
+
+#painel b{
+    font-size: 20px;
+}
+
+#painel ul{
+    margin-top: 10px;
+}
+
+#painel span{
+    cursor: pointer;
+}
+
+#barranav{
+    display: none;
+}
+
+/* Lista ******************************************************************************************************************************* */
+
+#maincol{
+    padding-top: 25px; 
+}
+
+#conteudo{
+    margin: auto;
+    /* width: 90%; */
+    height: 90%;
+    padding: 0;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 3px;
+    background-color:#e6e6e6;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);    
+}
+
+#tabela{
+    position: relative;
+    margin: auto;
+    height: 90%;
+    /* margin-top: 20px; */
+    width: 99%;
+    background-color: white;
+    border: 1px solid #e6e6e6;
+    border-top: 0px;
+    border-radius: 3px;
+    /* margin-bottom: 10px;  */
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+
+#navbar{
+    margin: auto;
+    margin-bottom: 20px;
+    height: 80px;
+    width: 90%;
+    background-color: #e6e6e6;
+    /* border: 1px solid grey; */
+    border-radius: 3px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+ /* h1{
+    display: inline-block;
+    font-size: 200%;
+    /* display: block; */
+    /* margin-left:5%;
+    margin-top: 50px;
+    margin-bottom: 0; */
+    /* width: 33%;  */
+   /* float: left;
+} */
+
+#addcliente {
+    overflow: hidden;
+    width:33%;
+    height: 8%;
+    position: relative;
+    display: inline;
+    /* margin-left:10%; */
+    margin-top: 1%;
+    /* margin-bottom: 50    px; */
+    float: right;
+    font-family: 'Montserrat';
+    background-color: #b30000;
+    border: 0;
+}
+
+th{
+    font-family: 'Montserrat';
+}
+
+/* Cadastro *********************************************************************************************** */
+
+#areaformulario{
+    position: relative;
+    margin: auto;
+    height: 99%;
+    width: 99%;
+    background-color: white;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    margin-bottom: 0px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+#areaformulario form{
+    margin-top: 35px;
+    
+}
+
+#conteudo h3{
+    margin-left: 5%;
+}
+
+#codigo{
+    width: 50%;
+}
+
+#cpf{
+    width: 30%;
+    margin-bottom: 20px;
+    margin-right: 23px;
+    float: left;
+}
+
+#endereco{
+    margin-bottom: 18px;
+}
+
+#emailcad{  
+    float: left;
+    width: 67%;
+    margin-bottom: 20px;
+}
+
+#cep{
+    width: 30%;   
+    float: left;
+    margin-right: 20px;
+}
+
+#uf{
+    float: left;
+    width: 20%; 
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#municipio{
+    width: 41%;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+#fone1{
+    width: 49%;
+    float: left;
+    margin-bottom: 17px;
+    margin-right: 15px;
+}
+
+#fone2{
+    float: left; 
+    width: 49%;
+    margin-bottom: 17px;
+}
+
+#repsenha{
+    margin-bottom: 17px;
+}
+
+#radio{
+    font-family: 'Montserrat';
+    float: left;
+}
+
+#areaformulario #enviar{
+    float: right;
+    margin-top: 30px; 
+    width: 30%;
+    margin-bottom: 15px;
+    font-family: 'Montserrat';
+    background-color: #b30000;
+    border: 0;
+}
+
+#tituloradio{
+    float: left;
+    margin-right: 10px;
+    margin-left: 20px;
+    font-family: 'Montserrat';
+}
+
+#senhacad, #senha2{
+    float: left;
+    width: 49%;
+}
+
+#senhacad{
+    margin-right: 15px;
+    margin-bottom: 15px; 
+}
+
+@media screen and (max-width: 700px){
+
+    body{
+        overflow: auto;
+    }
+
+    #formulario{
+        min-width: 100px;
+        width: 274px;
+        height: 400px;
+        padding-top: 70px;
+    }
+
+    #areaformulario{
+        padding: 10px;
+    }
+    
+    form{
+        padding:10px 0 0 0;
+    }
+
+    /* #maincol>h1{
+        margin-top:80px;
+    } */
+
+    #barranav{
+        top: 0px;
+        left: 0;
+        /* height: 15%; */
+        width: 100%;
+        position: fixed;
+        background-color: #e6e6e6;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);    
+        display: block;
+        z-index: 1;
+    }
+    
+    #menudown, #menuup{
+        margin: 20px;
+        margin-left: 47%;
+    }
+
+    #barranav>p{
+        font-size: 40px;
+    }
+
+    #cadastre-se{
+        margin-left: 0;
+    }
+
+    #titulopag{
+        margin-top: 80px;
+    }
+
+    .hide{
+        display: none;
+    }
+
+    #conteudo{
+        width: 100%;
+    }
+
+    #enviar{
+        margin: 5px;
+    }
+
+}
