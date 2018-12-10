@@ -43,6 +43,9 @@ public partial class Lista : System.Web.UI.Page
         gdCliente.DataSource = dt;
         gdCliente.DataBind();
 
+        gdCliente.UseAccessibleHeader = true;
+        gdCliente.HeaderRow.TableSection = TableRowSection.TableHeader;
+
         conn.Close();
     }
 

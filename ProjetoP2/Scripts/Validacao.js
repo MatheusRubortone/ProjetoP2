@@ -40,8 +40,8 @@ function alerta (message) {
 }
 
 function ValidaLogin() {
-	var login = document.getElementById("email");
-	var senha = document.getElementById("senha");
+    var login = document.getElementById("txtEmail");
+    var senha = document.getElementById("txtSenha");
 
 	//Valida Email
 	if (login.value == "" || login.value.indexOf("@") < 1 || login.value.indexOf(".") < 1) {
@@ -66,20 +66,20 @@ function somenteNumeros(evt){
 }
 
 function ValidaCadastro() {
-	var codigo = document.getElementById("codigo");
-	var nome = document.getElementById("nome");
-	var email = document.getElementById("emailcad");
-	var telefone = document.getElementById("fone1");
-	var res = document.getElementById("fone2");
-	var cpf = document.getElementById("cpf");
-	var endereco = document.getElementById("endereco");
-	var radioSim = document.getElementById("radioSim");
-	var radioNao = document.getElementById("radioNao");
-	var senha = document.getElementById("senhacad");
-	var senha2 = document.getElementById("senha2");
-	var cep = document.getElementById("cep");
-	var uf = document.getElementById("uf");
-	var cid = document.getElementById("municipio");
+    var codigo = document.getElementById("txtCodigo");
+    var nome = document.getElementById("txtNome");
+    var email = document.getElementById("txtEmail");
+    var telefone = document.getElementById("txtTelefone");
+	//var res = document.getElementById("fone2");
+    var cpf = document.getElementById("txtCpf");
+    var endereco = document.getElementById("txtEndereco");
+	//var radioSim = document.getElementById("radioSim");
+	//var radioNao = document.getElementById("radioNao");
+	//var senha = document.getElementById("senhacad");
+	//var senha2 = document.getElementById("senha2");
+	//var cep = document.getElementById("cep");
+	//var uf = document.getElementById("uf");
+	//var cid = document.getElementById("municipio");
 
 	var num = /[^0-9]/;
 
@@ -142,63 +142,63 @@ function ValidaCadastro() {
 	}
 
 	//Valida CEP
-	if(cep.value == "" || cep.value.length != 9){
-		alerta("CEP Inválido!");
-		cep.focus();
-		return false;
-	}
+	//if(cep.value == "" || cep.value.length != 9){
+	//	alerta("CEP Inválido!");
+	//	cep.focus();
+	//	return false;
+	//}
 
-	//Valida UF
-	if(uf.options[uf.selectedIndex].text == "UF *"){
-		alerta("Selecione a UF!");
-		uf.focus();
-		return false;	
-	}
+	////Valida UF
+	//if(uf.options[uf.selectedIndex].text == "UF *"){
+	//	alerta("Selecione a UF!");
+	//	uf.focus();
+	//	return false;	
+	//}
 
-	//Valida cidade
-	if(cid.options[cid.selectedIndex].text == "Cidade *"){
-		alerta("Selecione a Cidade!");
-		cid.focus();
-		return false;	
-	}
+	////Valida cidade
+	//if(cid.options[cid.selectedIndex].text == "Cidade *"){
+	//	alerta("Selecione a Cidade!");
+	//	cid.focus();
+	//	return false;	
+	//}
 
-	//Valida Celular
-	num.lastIndex = 0;
+	////Valida Celular
+	//num.lastIndex = 0;
 
-	var tel = telefone.value
-	tel = tel.replace(/\D/g, '');
+	//var tel = telefone.value
+	//tel = tel.replace(/\D/g, '');
 
-	if(tel == ""){
-		alerta("O preenchimento do campo Telefone Celular é obrigatório!");
-		telefone.focus();
-		return false;
-	}
+	//if(tel == ""){
+	//	alerta("O preenchimento do campo Telefone Celular é obrigatório!");
+	//	telefone.focus();
+	//	return false;
+	//}
 
-	if (tel.length != 11 || num.test(tel)) {
-		alerta("Insira um número de telefone válido!");
-		telefone.focus();
-		return false;
-	}	
+	//if (tel.length != 11 || num.test(tel)) {
+	//	alerta("Insira um número de telefone válido!");
+	//	telefone.focus();
+	//	return false;
+	//}	
 
-	//Valida Residencial
-	if (res.value != ""){
-		var telres = res.value
-		telres = telres.replace(/\D/g, '');
+	////Valida Residencial
+	//if (res.value != ""){
+	//	var telres = res.value
+	//	telres = telres.replace(/\D/g, '');
 	
-		if (telres.length != 10 || num.test(telres)) {
-			alerta("Insira um número de telefone residencial válido!");
-			res.focus();
-			return false;
-		}	
-	}
+	//	if (telres.length != 10 || num.test(telres)) {
+	//		alerta("Insira um número de telefone residencial válido!");
+	//		res.focus();
+	//		return false;
+	//	}	
+	//}
 
-	//Valida Radio
-	if(radioSim != null){
-		if (radioSim.checked == false && radioNao.checked == false) {
-			alerta("É necessário indicar se o cliente está Ativo ou Inativo!");
-			return false;
-		}
-	}
+	////Valida Radio
+	//if(radioSim != null){
+	//	if (radioSim.checked == false && radioNao.checked == false) {
+	//		alerta("É necessário indicar se o cliente está Ativo ou Inativo!");
+	//		return false;
+	//	}
+	//}
 
 	//Valida Senha
 	if(senha.value == "" || senha.value.length < 6){
@@ -236,39 +236,9 @@ $(document).ready(function () {
 		document.getElementById("maincol").classList.remove('col-12');
 	}
 
-	$("tbody").load('carga.txt');
-
-	$("#menu").hide();
-	$("#painel ul").hide();
-	$("#painel #up").hide();
-	$("#painel #down").show();
-	$("#barranav #menudown").show();
-	$("#barranav #menuup").hide();
-	$("#barranav ul").hide();
-
-	$("#headmenu").mouseenter(function () {
-		$("#menu").slideDown(500);
-	});
-	$("#menu").mouseleave(function () {
-		$("#menu").slideUp(500);
-	});
-
-	$("#lista").click(function () {
-		$("#painel ul").slideToggle();
-		$("#painel #up").toggle();
-		$("#painel #down").toggle();
-	});
-
-	$("#barranav").click(function () {
-		$("#barranav ul").slideToggle();
-		$("#barranav #menuup").toggle();
-		$("#barranav #menudown").toggle();
-	});
-
-	$('#cpf').mask('000.000.000-00', {reverse: false});
-	$('#cep').mask('00000-000');
-	$('#fone1').mask('(00) 00000-0000');
-	$('#fone2').mask('(00) 	0000-0000');
+    $('#xtCpf').mask('000.000.000-00', {reverse: false});
+    $('#txtTelefone').mask('(00) 00000-0000');
+	
 });
 
 

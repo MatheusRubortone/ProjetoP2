@@ -20,7 +20,7 @@
             <div class="col">
                 <div id="formulario">
                     <h2 class="text-center" style="font-family: 'Montserrat'">Log-in</h2>
-                    <form id="form1" runat="server">
+                    <form id="form1" runat="server" onclientclick="return ValidaCadastro()">
                         <div id="alertPlaceholder"></div>
                         <div> 
                             <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Email"></asp:TextBox>

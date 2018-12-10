@@ -81,13 +81,21 @@ input{
     margin-bottom: 15px;
 }
 
+#btnEsqueci {
+    color: #b30000;
+}
 
-form{
-   padding: 10px 30px 10px 30px; 
+form {
+    padding: 10px 30px 10px 30px;
 }
 
 button{
     border-radius: 2px;
+}
+
+.botao {
+    background-color: #b30000;
+    border: 0;
 }
 
 #btnEntrar {
