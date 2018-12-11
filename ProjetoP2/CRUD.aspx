@@ -44,6 +44,9 @@
                                 <asp:RadioButton ID="rdnInativo" GroupName="Status" runat="server" Text="Não" />
                                 <br />
                                 <br />
+                                <asp:Label ID="msgErro" runat="server" Text="Label" ForeColor="red"></asp:Label>
+                                <br />
+                                <br />
                                 <asp:Button ID="btnInserir" runat="server" OnClick="btnInserir_Click" Text="Inserir Novo Cliente" Width="179px" style="background-color:#b30000;border: 0;" class="btn btn-primary botao" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <asp:Button ID="btnAtualiza" runat="server" OnClick="btnAtualiza_Click" Text="Atualizar Cliente" class="btn btn-primary botao" style="background-color:#b30000;border: 0;"/>

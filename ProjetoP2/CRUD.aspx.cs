@@ -6,9 +6,104 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 public partial class CRUD : System.Web.UI.Page
 {
+    string msg = " ";
+    public static bool validaCPF(string cpf)
+    {
+        int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+        int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+        string tempCpf;
+        string digito;
+        int soma;
+        int resto;
+        cpf = cpf.Trim();
+        cpf = cpf.Replace(".", "").Replace("-", "");
+        if (cpf.Length != 11)
+            return false;
+        tempCpf = cpf.Substring(0, 9);
+        soma = 0;
+
+        for (int i = 0; i < 9; i++)
+            soma += int.Parse(tempCpf[i].ToString()) * multiplicador1[i];
+        resto = soma % 11;
+        if (resto < 2)
+            resto = 0;
+        else
+            resto = 11 - resto;
+        digito = resto.ToString();
+        tempCpf = tempCpf + digito;
+        soma = 0;
+        for (int i = 0; i < 10; i++)
+            soma += int.Parse(tempCpf[i].ToString()) * multiplicador2[i];
+        resto = soma % 11;
+        if (resto < 2)
+            resto = 0;
+        else
+            resto = 11 - resto;
+        digito = digito + resto.ToString();
+        return cpf.EndsWith(digito);
+    }
+
+    public bool ValidarEmail(String email)
+    {
+        bool emailValido = false;
+
+        string emailRegex = string.Format("{0}{1}",
+            @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))",
+            @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$");
+
+        try
+        {
+            emailValido = Regex.IsMatch(
+                email,
+                emailRegex);
+        }
+        catch (RegexMatchTimeoutException)
+        {
+            emailValido = false;
+        }
+
+        return emailValido;
+    }
+
+    public bool Validar(string nome, string cpf, string email, string telefone)
+    {
+        bool valido = true;
+        msg = "";
+
+        if(nome == ""){
+            msg = "Nome inválido" + "<br />";
+            valido = false;
+        }
+
+        if (!validaCPF(cpf)) {
+            msg = msg + "CPF inválido" + "<br />";
+            valido = false;
+        }
+
+        if (!ValidarEmail(email)) {
+            msg = msg + "Email inválido" + "<br />";
+            valido = false;
+        }
+
+        if (telefone == ""){
+            msg = msg + "Telefone inválido" + "<br />";
+            valido = false;
+        }
+
+        if(rdnAtivo.Checked == false && rdnInativo.Checked == false)
+        {
+            msg = msg + "Escolha um Status";
+            valido = false;
+        }
+
+        return valido;
+    }
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["email"] == null || Session["senha"] == null)
@@ -57,12 +152,13 @@ public partial class CRUD : System.Web.UI.Page
 
     protected void btnInserir_Click(object sender, EventArgs e)
     {
-        if(txtNome.Text == "" || txtCpf.Text == "" || txtEmail.Text == "" || txtTelefone.Text == "")
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Certifique que todos os campos estãodevidamente preenchidos!');</script>");
-       else  if( rdnAtivo.Checked == false && rdnInativo.Checked == false)
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Certifique que todos os campos estãodevidamente preenchidos!');</script>");
+        if(!Validar(txtNome.Text, txtCpf.Text, txtEmail.Text, txtTelefone.Text))
+        {
+            msgErro.Text = msg;
+        }
         else
         {
+            msgErro.Text = "";
             string status;
             if (rdnAtivo.Checked == true) status = "A";
             else status = "I";
@@ -84,12 +180,13 @@ public partial class CRUD : System.Web.UI.Page
 
     protected void btnAtualiza_Click(object sender, EventArgs e)
     {
-        if (txtCodigo.Text == "" || txtNome.Text == "" || txtCpf.Text == "" || txtEmail.Text == "" || txtTelefone.Text == "")
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Certifique que todos os campos estãodevidamente preenchidos!');</script>");
-        else if (rdnAtivo.Checked == false && rdnInativo.Checked == false)
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Certifique que todos os campos estãodevidamente preenchidos!');</script>");
+        if (!Validar(txtNome.Text, txtCpf.Text, txtEmail.Text, txtTelefone.Text))
+        {
+            msgErro.Text = msg;
+        }
         else
         {
+            msgErro.Text = "";
             string status;
             if (rdnAtivo.Checked == true) status = "A";
             else status = "I";
